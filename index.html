@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine.js" integrity="sha512-nIwdJlD5/vHj23CbO2iHCXtsqzdTTx3e3uAmpTm4x2Y8xCIFyWu4cSIV8GaGe2UNVq86/1h9EgUZy7tn243qdA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Anupam Restaurant Manipal</title>
+    <style>
+         body {
+            font-family: 'Poppins', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .animate-slide-up {
+            animation: slideUp 0.5s ease-out;
+        }
+        @keyframes slideUp {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .animate-scale {
+            transition: transform 0.3s ease;
+        }
+        .animate-scale:hover {
+            transform: scale(1.05);
+        }
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .gallery-item:hover img {
+            opacity: 1;
+        }
+        @media (max-width: 640px) {
+            .gallery-item:hover {
+                transform: none;
+            }
+        }
+       
+
+
+
+
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: none;
+            }
+            .mobile-menu.active {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="bg-red-50" x-data="{ mobileMenuOpen: false }">
+    <header class="text-white body-font bg-red-600 shadow-md fixed w-full z-50">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-yellow-500 rounded-full" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                <span class="ml-3 text-xl font-bold">Anupam Restaurant</span>
+            </a>
+            <nav class="md:ml-auto md:flex flex-wrap items-center text-base justify-center hidden">
+                <a href="#home" class="mr-5 hover:text-yellow-300 transition duration-300">Home</a>
+                <a href="#best-sellers" class="mr-5 hover:text-yellow-300 transition duration-300">Best Sellers</a>
+                <a href="#gallery" class="mr-5 hover:text-yellow-300 transition duration-300">Gallery</a>
+                <a href="#reviews" class="mr-5 hover:text-yellow-300 transition duration-300">Reviews</a>
+                <a href="#contact" class="mr-5 hover:text-yellow-300 transition duration-300">Contact</a>
+            </nav>
+            <button class="md:hidden ml-auto" @click="mobileMenuOpen = !mobileMenuOpen">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            <div class="w-full md:w-auto">
+                <button class="inline-flex items-center bg-yellow-500 border-0 py-2 px-4 focus:outline-none hover:bg-yellow-600 rounded text-white mt-4 md:mt-0 transition duration-300 animate-scale w-full md:w-auto">
+                    <a href="https://www.zomato.com/manipal/anupam-restaurant-tiger-circle" target="_blank" rel="noopener noreferrer">Order Now</a>
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu md:hidden" :class="{'active': mobileMenuOpen}">
+            <a href="#home" class="block py-2 px-4 text-sm hover:bg-red-700">Home</a>
+            <a href="#best-sellers" class="block py-2 px-4 text-sm hover:bg-red-700">Best Sellers</a>
+            <a href="#gallery" class="block py-2 px-4 text-sm hover:bg-red-700">Gallery</a>
+            <a href="#reviews" class="block py-2 px-4 text-sm hover:bg-red-700">Reviews</a>
+            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-red-700">Contact</a>
+        </div>
+    </header>
+    <section id="home" class="text-gray-600 body-font relative animate-fade-in pt-24">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('photos/home.jpg'); filter: blur(5px); z-index: -1;"></div>
+        <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center relative z-10">
+            <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+                <h1 class="title-font sm:text-5xl text-4xl mb-4 font-bold text-white" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                    Savor the Authentic Flavors<br class="hidden lg:inline-block">
+                    <span class="text-yellow-400">Anupam Restaurant</span>
+                </h1>
+                <p class="mb-8 leading-relaxed text-gray-100 text-lg" style="text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">Experience the rich taste of pure vegetarian South Indian cuisine, crafted with love and served with pride.</p>
+                <div class="flex justify-center">
+                    <button class="inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-700 rounded text-lg transition duration-300 transform hover:scale-105 animate-scale">
+                        <a href="https://www.zomato.com/manipal/anupam-restaurant-tiger-circle" target="_blank" rel="noopener noreferrer">Order Now</a>
+                    </button>
+                </div>
+            </div>
+            <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 animate-slide-up">
+                <div class="bg-white p-4 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold text-red-600 mb-2">Ratings</h2>
+                    <p class="text-gray-700"><strong>Dining:</strong> 4.3 (5,886 reviews)</p>
+                    <p class="text-gray-700"><strong>Cuisine:</strong> Mangalorean, South Indian</p>
+                    <p class="text-gray-700"><strong>Location:</strong> Tiger Circle, Manipal</p>
+                    <p class="text-gray-700"><strong>Hours:</strong> Open now 7am – 10pm (Everyday)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="best-sellers" class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <h2 class="text-3xl font-bold title-font text-red-600 mb-12 text-center">Our Best Sellers</h2>
+            <div class="flex flex-wrap -m-4">
+                <div class="p-4 md:w-1/2 lg:w-1/4">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden animate-slide-up">
+                        <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="photos/Butter Masal dosa.png" alt="Butter Masala Dosa">
+                        <div class="p-6">
+                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Butter Masala Dosa</h1>
+                            <p class="leading-relaxed mb-3">Crispy dosa filled with spicy potato masala and topped with butter.</p>
+                            <div class="flex items-center flex-wrap ">
+                                <a href="https://www.swiggy.com/city/manipal/anupam-restaurant-eshwar-nagar-manipal-rest199359" class="text-white bg-red-500 border-0 py-2 px-4 focus:outline-none hover:bg-red-600 rounded animate-scale">Order on Swiggy</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 md:w-1/2 lg:w-1/4">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden animate-slide-up" style="animation-delay: 0.2s;">
+                        <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="photos/Masla dosa.png" alt="Masala Dosa">
+                        <div class="p-6">
+                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Masala Dosa</h1>
+                            <p class="leading-relaxed mb-3">Classic South Indian dosa filled with spicy potato masala.</p>
+                            <div class="flex items-center flex-wrap ">
+                                <a href="https://www.swiggy.com/city/manipal/anupam-restaurant-eshwar-nagar-manipal-rest199359" class="text-white bg-red-500 border-0 py-2 px-4 focus:outline-none hover:bg-red-600 rounded animate-scale">Order on Swiggy</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 md:w-1/2 lg:w-1/4">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden animate-slide-up" style="animation-delay: 0.4s;">
+                        <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="photos/paruta kurma.png" alt="Parota Kurma">
+                        <div class="p-6">
+                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Parota Kurma</h1>
+                            <p class="leading-relaxed mb-3">Flaky layered parota served with flavorful vegetable kurma.</p>
+                            <div class="flex items-center flex-wrap ">
+                                <a href="https://www.swiggy.com/city/manipal/anupam-restaurant-eshwar-nagar-manipal-rest199359" class="text-white bg-red-500 border-0 py-2 px-4 focus:outline-none hover:bg-red-600 rounded animate-scale">Order on Swiggy</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 md:w-1/2 lg:w-1/4">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden animate-slide-up" style="animation-delay: 0.6s;">
+                        <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="photos/paruta kurma.png" alt="Sada Dosa">
+                        <div class="p-6">
+                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Sada Dosa</h1>
+                            <p class="leading-relaxed mb-3">Simple and crispy dosa served with chutney and sambar.</p>
+                            <div class="flex items-center flex-wrap ">
+                                <a href="https://www.swiggy.com/city/manipal/anupam-restaurant-eshwar-nagar-manipal-rest199359" class="text-white bg-red-500 border-0 py-2 px-4 focus:outline-none hover:bg-red-600 rounded animate-scale">Order on Swiggy</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <h2 class="text-3xl font-bold title-font text-red-600 mb-12 text-center">Customer Reviews</h2>
+            <div class="flex flex-wrap -m-4">
+                <div class="p-4 md:w-1/3">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="photos/reviwe1.png" alt="Review 1">
+                    </div>
+                </div>
+                <div class="p-4 md:w-1/3">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="photos/reviwe2.png" alt="Review 2">
+                    </div>
+                </div>
+                <div class="p-4 md:w-1/3">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="photos/reviwe3.png" alt="Review 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="text-gray-600 body-font bg-gray-100">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-wrap md:text-left text-center -mb-10 -mx-4">
+                <div class="lg:w-1/4 md:w-1/2 w-full px-4 mb-10">
+                    <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-red-500 rounded-full" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
+                        <span class="ml-3 text-xl">Anupam Restaurant</span>
+                    </a>
+                    <p class="mt-2 text-sm text-gray-500">Savor the Authentic Flavors of South India</p>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 w-full px-4 mb-10">
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">ADDRESS</h2>
+                    <p class="mt-2 text-sm text-gray-500">Manipal Commercial Complex, Ground Floor, Mainpal Main Road, Kmc, Manipal - 576104 (Opp to Kmc Hospital)</p>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 w-full px-4 mb-10">
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CONTACT</h2>
+                    <p class="mt-2 text-sm text-gray-500">07947428882</p>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 w-full px-4 mb-10">
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">DEVELOPERS</h2>
+                    <p class="mt-2 text-sm text-gray-500">Ramananda Nayak, Manoj, Ashish shetty, Vijetha, Nuthana</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-gray-200">
+            <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+                <p class="text-gray-500 text-sm text-center sm:text-left">© 2024 Anupama — All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
